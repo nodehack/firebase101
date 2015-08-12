@@ -1,20 +1,25 @@
 (function (angular) {
   'use strict';
 
-  angular.module('markdown', ['ngRoute', 'hc.marked'])
+  angular.module('markdown', ['ngRoute', 'hc.marked', 'myfirebase', 'firebase'])
     .config(function ($routeProvider) {
       $routeProvider
-        .when('/markdown', {
+        .when('/markdown/:id', {
           title: 'Markdown Editor',
           templateUrl: 'scripts/markdown/markdown.html',
           controller: 'MarkdownController',
           controllerAs: 'view',
+          resolve: {
+            markdown: function (MyFirebaseService, $route, $firebaseObject) {
+              return $firebaseObject(MyFirebaseService.getMarkdown($route.current.params.id));
+            }
+          }
         });
     })
-    .controller('MarkdownController', function () {
-      var view = this;
+    .controller('MarkdownController', function ($scope, markdown) {
+      // var view = this;
 
-      view.helloWorld = 'Hello World!';
+       markdown.$bindTo($scope, 'markdown');
 
     })
     .directive('elastic', function($timeout) {

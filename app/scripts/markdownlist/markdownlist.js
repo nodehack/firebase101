@@ -11,14 +11,14 @@
           controllerAs: 'view',
         });
     })
-    .controller('MarkdownListController', function (MyFirebaseService) {
+    .controller('MarkdownListController', function (MyFirebaseService, $location) {
       var view = this;
 
       view.markdowns = MyFirebaseService.getMarkdowns();
 
       view.addMarkdown = function () {
         var authData = MyFirebaseService.getAuthenticationData();
-        
+
         if (authData && view.name) {
           var newMarkdown = {
             name: view.name,
@@ -32,6 +32,10 @@
             view.name = null;
           });
         }
+      };
+
+      view.goToEdit = function (markdown) {
+        $location.path('/markdown/' + markdown.$id);
       };
 
     });

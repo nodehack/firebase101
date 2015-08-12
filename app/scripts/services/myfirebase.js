@@ -31,6 +31,10 @@
       return $firebaseArray(ref.child('markdowns'));
     };
 
+    this.getMarkdown = function (id) {
+      return ref.child('markdowns').child(id);
+    };
+
   });
 
 })(angular);

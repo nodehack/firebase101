@@ -8,7 +8,7 @@
              class="form-control"
              placeholder="enter a name for your markdown"
              required
-             ng-model="view.mdName">
+             ng-model="markdown.name">
     </div>
   </div>
   <div class="row">
@@ -17,12 +17,12 @@
         <textarea elastic
                   allow-tab
                   class="markdown-textarea"
-                  ng-model="view.markdown"
+                  ng-model="markdown.markdown"
                   placeholder="enter your markdown..."></textarea>
       </div>
     </div>
     <div class="col-md-6">
-        <div class="markdown" marked="view.markdown"></div>
+        <div class="markdown" marked="markdown.markdown"></div>
     </div>
   </div>
 </div>
