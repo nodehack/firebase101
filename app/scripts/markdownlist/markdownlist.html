@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="input-group">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button" ng-click="view.addMarkdown()"><span class="glyphicon glyphicon-plus"></span></button>
+      </span>
+      <input type="text" class="form-control" placeholder="Add a markdown..." ng-model="view.name">
+    </div>
+  </div>
+
+  <div class="row markdownlist">
+    <h4>Markdowns</h4>
+    <ul class="list-group">
+      <li ng-repeat="markdown in view.markdowns"
+          class="list-group-item clearfix">
+        <div class="btn-group pull-right" role="group" aria-label="markdownControls">
+          <a ng-click="view.gotoEdit(markdown)" class="btn btn-default">
+            <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
+          </a>
+          <button type="button" class="btn btn-default" ng-click="view.deleteMarkdown(markdown)"><span class="glyphicon glyphicon-remove-circle" aria-hidden="true"></span> Delete</button>
+        </div>
+        <h5 class="list-group-item-text" ng-bind="markdown.name"></h5>
+      </li>
+    </ul>
+  </div>
+</div>

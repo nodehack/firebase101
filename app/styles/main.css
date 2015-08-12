@@ -1,0 +1,106 @@
+.browsehappy {
+  margin: 0.2em 0;
+  background: #ccc;
+  color: #000;
+  padding: 0.2em 0;
+}
+
+body {
+  padding: 0;
+}
+
+.hero {
+  background: linear-gradient(174deg,rgba(74,177,250,0) 0,rgba(74,177,250,0) 50%,rgba(74,177,250,.6) 90%,#4bb1fa 100%),#045e9e url(../images/krisskross_v2.png) center center repeat;
+  background-color: #045e9e;
+}
+
+.hero-inner {
+  height: 590px;
+}
+
+.logo {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 80px;
+  padding-bottom: 20px;
+  width: 600px;
+}
+
+.hero-blurb {
+  color: white;
+  font-size: 20px;
+  font-weight: 300;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.navbar {
+  margin-bottom: 0px;
+}
+
+.navbar-brand {
+  font-weight: 500;
+  color: #563d7c;
+}
+
+.navbar-nav>li>a {
+    font-weight: 500;
+    color: #563d7c;
+}
+
+.markdown-name {
+  padding-right: 15px;
+  padding-left: 15px;
+}
+
+.markdown {
+  height: 100%;
+  width: 100%;
+  overflow-y: scroll;
+}
+
+.markdown-textarea {
+  height: 100%;
+  width: 100%;
+  resize: none;
+  border-top: 0px;
+  border-left: 0px;
+  border-bottom: 0px;
+  border-right-color: #563d7c;
+  overflow-y: scroll;
+  background-color: ghostwhite;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.markdown-textarea:focus {
+  outline-width: 0;
+}
+
+
+/* Custom page footer */
+.footer {
+  padding-top: 19px;
+  color: #777;
+  border-top: 1px solid #e5e5e5;
+}
+
+.logout {
+  float: left;
+}
+
+.avatar {
+  float: right;
+  border-radius: 50%;
+  display: block;
+  margin-top: 9px;
+  height: 32px;
+  width: 32px;
+}
+
+.markdownlist {
+  margin-top: 20px;
+}

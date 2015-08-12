@@ -1,0 +1,28 @@
+<div class="container">
+  <div class="row">
+    <div class="form-group markdown-name">
+      <label for="mdName">Name</label>
+      <input id="mdName"
+             name="mdName"
+             type="text"
+             class="form-control"
+             placeholder="enter a name for your markdown"
+             required
+             ng-model="view.mdName">
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-6">
+      <div class="markdown-edit-container">
+        <textarea elastic
+                  allow-tab
+                  class="markdown-textarea"
+                  ng-model="view.markdown"
+                  placeholder="enter your markdown..."></textarea>
+      </div>
+    </div>
+    <div class="col-md-6">
+        <div class="markdown" marked="view.markdown"></div>
+    </div>
+  </div>
+</div>
