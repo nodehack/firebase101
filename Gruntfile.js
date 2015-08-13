@@ -324,7 +324,7 @@ module.exports = function (grunt) {
           usemin: 'scripts/scripts.js'
         },
         cwd: '<%= yeoman.app %>',
-        src: 'views/{,*/}*.html',
+        src: 'scripts/{,*/}*.html',
         dest: '.tmp/templateCache.js'
       }
     },
@@ -448,7 +448,7 @@ module.exports = function (grunt) {
     'concat',
     'ngAnnotate',
     'copy:dist',
-    'cdnify',
+    // 'cdnify',
     'cssmin',
     'uglify',
     'filerev',
@@ -458,7 +458,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'test',
+    // 'test', <-- put this back if you decide to add tests
     'build'
   ]);
 };
