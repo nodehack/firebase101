@@ -34,6 +34,10 @@
         }
       };
 
+      view.deleteMarkdown = function (markdown) {
+        view.markdowns.$remove(markdown);
+      };
+
       view.goToEdit = function (markdown) {
         $location.path('/markdown/' + markdown.$id);
       };

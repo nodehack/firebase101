@@ -1,0 +1,10 @@
+{
+    "rules": {
+        ".read": true,
+        "markdowns": {
+          "$markdown_id": {
+            ".write": "(newData.exists() && auth != null) || (!newData.exists() && data.child('createdByID').val() === auth.uid)"
+          }
+        }
+    }
+}
