@@ -14,13 +14,21 @@
               return $firebaseObject(MyFirebaseService.getMarkdown($route.current.params.id));
             }
           }
+        })
+        .when('/markdown/view/:id', {
+          title: 'Markdown',
+          templateUrl: 'scripts/markdown/viewmarkdown.html',
+          controller: 'MarkdownController',
+          controllerAs: 'view',
+          resolve: {
+            markdown: function (MyFirebaseService, $route, $firebaseObject) {
+              return $firebaseObject(MyFirebaseService.getMarkdown($route.current.params.id));
+            }
+          }
         });
     })
     .controller('MarkdownController', function ($scope, markdown) {
-      // var view = this;
-
        markdown.$bindTo($scope, 'markdown');
-
     })
     .directive('elastic', function($timeout) {
       return {

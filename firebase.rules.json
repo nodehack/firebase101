@@ -3,7 +3,17 @@
         ".read": true,
         "markdowns": {
           "$markdown_id": {
-            ".write": "(newData.exists() && auth != null) || (!newData.exists() && data.child('createdByID').val() === auth.uid)"
+            ".write": //new markdown
+                      "(newData.exists() && !data.exists() && auth != null) ||
+                      //edit markdown
+                       (newData.exists() && data.exists() &&
+                          (
+                            (data.child('allowOthersToEdit').val() === true && auth != null) ||
+                            (data.child('allowOthersToEdit').val() === false && data.child('createdByID').val() === auth.uid)
+                          )
+                        ) ||
+                        // delete markdown
+                       (!newData.exists() && data.child('createdByID').val() === auth.uid)"
           }
         }
     }

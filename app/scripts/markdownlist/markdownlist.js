@@ -15,6 +15,7 @@
       var view = this;
 
       view.markdowns = MyFirebaseService.getMarkdowns();
+      view.allowOthersToEdit = true;
 
       view.addMarkdown = function () {
         var authData = MyFirebaseService.getAuthenticationData();
@@ -25,7 +26,8 @@
             createdByID: authData.uid,
             createdBy: authData.google.displayName,
             markdown: "",
-            lastEditedBy: authData.google.displayName
+            lastEditedBy: authData.google.displayName,
+            allowOthersToEdit: view.allowOthersToEdit ? true : false
           };
 
           view.markdowns.$add(newMarkdown).then(function () {
@@ -40,6 +42,10 @@
 
       view.goToEdit = function (markdown) {
         $location.path('/markdown/' + markdown.$id);
+      };
+
+      view.goToView = function (markdown) {
+        $location.path('/markdown/view/' + markdown.$id);
       };
 
     });

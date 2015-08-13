@@ -8,12 +8,21 @@
     </div>
   </div>
 
+  <div class="row">
+    <div class="pull-right">
+      <h5><small>Allow others to edit:&nbsp;</small><input type="checkbox" class="" ng-model="view.allowOthersToEdit"></h5>
+    </div>
+  </div>
+
   <div class="row markdownlist">
     <h4>Markdowns</h4>
     <ul class="list-group">
       <li ng-repeat="markdown in view.markdowns"
           class="list-group-item clearfix">
         <div class="btn-group pull-right" role="group" aria-label="markdownControls">
+          <a ng-click="view.goToView(markdown)" class="btn btn-default">
+            <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> View
+          </a>
           <a ng-click="view.goToEdit(markdown)" class="btn btn-default">
             <span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit
           </a>
