@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('markdown', ['ngRoute', 'hc.marked', 'myfirebase', 'firebase'])
-    .config(function ($routeProvider) {
+    .config(function ($routeProvider, markedProvider) {
       $routeProvider
         .when('/markdown/:id', {
           title: 'Markdown Editor',
@@ -26,6 +26,14 @@
             }
           }
         });
+
+      markedProvider.setOptions({
+        gfm: true,
+        tables: true,
+        highlight: function (code) {
+          return hljs.highlightAuto(code).value;
+        }
+      });
     })
     .controller('MarkdownController', function ($scope, markdown) {
        markdown.$bindTo($scope, 'markdown');
@@ -37,9 +45,14 @@
           $scope.initialHeight = $scope.initialHeight || element[0].style.height;
           var resize = function() {
             element[0].style.height = $scope.initialHeight;
-            element[0].style.height = 5 + element[0].scrollHeight + "px";
+            element[0].style.height = 5 + element[0].scrollHeight + "px";            
           };
-          element.on("blur keyup change", resize);
+          element.on("keypress", resize);
+          $scope.$watch('markdown.markdown', function (oldValue, newValue) {
+            if (oldValue !== newValue) {
+              resize();
+            }
+          });
           $timeout(resize, 0);
         }
       };
