@@ -1,20 +1,22 @@
 <div class="container">
   <div class="row">
-    <div class="input-group">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button" ng-click="view.addMarkdown()"><span class="glyphicon glyphicon-plus"></span></button>
-      </span>
-      <input type="text" class="form-control" placeholder="Add a markdown..." ng-model="view.name">
+    <div class="jumbotron">
+      <h1>Welcome to Project .md</h1>
+      <p>Project .md is a web application for creating and editing markdown. It allows side-by-side edit/view capabilities as well as multiple simultaneous edits from different sources. Login using Google authentication and get down with your markdown!</p>
+      <div class="input-group">
+        <span class="input-group-btn">
+          <button class="btn btn-default" type="button" ng-click="view.addMarkdown()"><span class="glyphicon glyphicon-plus"></span></button>
+        </span>
+        <input type="text" class="form-control" placeholder="Add a markdown..." ng-model="view.name">
+      </div>
+      <div class="pull-right">
+        <h5><small>Allow others to edit:&nbsp;</small><input type="checkbox" class="" ng-model="view.allowOthersToEdit"></h5>
+      </div>
     </div>
+    </p>
   </div>
 
-  <div class="row">
-    <div class="pull-right">
-      <h5><small>Allow others to edit:&nbsp;</small><input type="checkbox" class="" ng-model="view.allowOthersToEdit"></h5>
-    </div>
-  </div>
-
-  <div class="row markdownlist">
+  <div class="row markdownlist" ng-if="view.markdowns && view.markdowns.length > 0">
     <h4>Markdowns</h4>
     <ul class="list-group">
       <li ng-repeat="markdown in view.markdowns"
