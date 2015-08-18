@@ -21,6 +21,9 @@ angular
   ])
   .config(function ($routeProvider) {
     $routeProvider
+      .when('/info', {
+        templateUrl: 'scripts/info/info.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
